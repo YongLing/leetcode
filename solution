@@ -1,0 +1,25 @@
+def twoSum(nums, target):
+    """
+    :type nums: List[int]
+    :type target: int
+    :rtype: List[int]
+    """
+    for num in nums:
+        index = list()
+        n1 = target - num
+        if n1 in nums:
+            if n1 == num:
+                if nums.count(n1) > 1:
+                    index.append(nums.index(num))
+                    index.append(nums.index(n1, index[0] + 1))
+                    return index
+            else:
+                index.append(nums.index(num))
+                index.append(nums.index(n1))
+                return index
+
+
+s = [2, 1, 9, 4, 4, 56, 90, 3]
+# s=[-1,-2,-3,-4,-5]
+
+print(twoSum(s, 8))
